@@ -5,10 +5,6 @@
 
 (use-package clojure-mode)
 
-(use-package org)
-;; (use-package ob-clojurescript
-;;   :ensure t)
-
 (use-package cider
   :bind (:map cider-mode-map
 	      ("C-c M-p" . cider-pprint-eval-last-sexp)
@@ -17,8 +13,8 @@
 	      ("C-c M-l" . cider-repl-switch-to-other))
   :config
   (require 'bind-key)
-  (unbind-key "C-c C-p" cider-repl-mode-map)
-  (unbind-key "C-c C-p" cider-mode-map)
+  (add-hook 'cider-repl-mode-hook #'company-mode)
+  (add-hook 'cider-mode-hook #'company-mode)
   ;; (setq org-babel-clojure-backend 'cider)
   )
 

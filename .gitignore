@@ -6,3 +6,6 @@
 /elpy/
 /forge-database.sqlite
 /projectile.cache
+/.cache/
+/eshell/
+/.lsp-session-v1

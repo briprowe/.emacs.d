@@ -63,16 +63,6 @@ If CLEAR is specified, clear them instead."
   (doom-modeline-buffer-file-name-style 'relative-from-project)
   :config
   (doom-modeline-mode))
-
-(use-package projectile
-  :demand t
-  :bind-keymap (("C-c p" . projectile-command-map)
-		("C-c C-p" . projectile-command-map))
-  :custom
-  (projectile-completion-system 'ivy)
-  :config
-  (projectile-mode))
-
 (use-package rg
   :after projectile
   :custom
@@ -90,11 +80,15 @@ If CLEAR is specified, clear them instead."
 (use-package undo-tree
   :demand t
   :bind (:map undo-tree-map
-          ([remap undo] . undo-tree-visualize)
-          ([remap undo-only] . undo-tree-undo))
+	      ([remap upcase-region] . undo-tree-visualize)
+              ([remap undo] . undo-tree-visualize)
+              ([remap undo-only] . undo-tree-undo))
   :init
   (setq undo-tree-map (make-sparse-keymap))
   :custom
   (undo-tree-enable-undo-in-region nil)
   :config
   (global-undo-tree-mode))
+
+(use-package gist
+  :demand t)
