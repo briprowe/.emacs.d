@@ -6,7 +6,8 @@
   (company-tooltip-align-annotations t)
   (company-require-match nil)
   :config
-  (global-company-mode 1))
+  (setq company-idle-delay 0.75)
+  (global-company-mode nil))
 
 (use-package company-dabbrev
   :straight company
