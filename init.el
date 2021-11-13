@@ -10,8 +10,7 @@
 
 (defun load-config (filename)
   (load (expand-file-name filename user-emacs-directory)))
-(dolist (filename '("straight.el" "ui.el" ;; "mac.el" "tools.el"
-		    ))
+(dolist (filename '("straight.el" "ui.el" "mac.el"))
   (load-config filename))
 
 ;; Swap ( <=> [ and ) <=> ]
