@@ -9,3 +9,5 @@
 /.cache/
 /eshell/
 /.lsp-session-v1
+/url/
+/tramp
