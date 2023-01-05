@@ -1,7 +1,10 @@
-(tool-bar-mode -1)
-(menu-bar-mode -1)
-(blink-cursor-mode -1)
-(scroll-bar-mode -1)
+(dolist (mode '(tool-bar-mode menu-bar-mode blink-cursor-mode scroll-bar-mode))
+  (if (fboundp mode)
+      (funcall mode -1)))
+;; (tool-bar-mode -1)
+;; (menu-bar-mode -1)
+;; (blink-cursor-mode -1)
+;; (scroll-bar-mode -1)
 (setq inhibit-startup-screen t)
 (setq scroll-margin 0
       scroll-conservatively 100000
