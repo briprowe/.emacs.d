@@ -63,6 +63,7 @@ If CLEAR is specified, clear them instead."
   (doom-modeline-buffer-file-name-style 'relative-from-project)
   :config
   (doom-modeline-mode))
+
 (use-package rg
   :after projectile
   :custom
@@ -87,8 +88,12 @@ If CLEAR is specified, clear them instead."
   (setq undo-tree-map (make-sparse-keymap))
   :custom
   (undo-tree-enable-undo-in-region nil)
+  (undo-tree-auto-save-history nil)
   :config
   (global-undo-tree-mode))
 
 (use-package gist
+  :demand t)
+
+(use-package yasnippet
   :demand t)

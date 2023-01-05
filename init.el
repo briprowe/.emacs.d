@@ -13,11 +13,11 @@
 (dolist (filename '("straight.el" "ui.el" "mac.el"))
   (load-config filename))
 
-;; Swap ( <=> [ and ) <=> ]
-(keyboard-translate ?\( ?\[)
-(keyboard-translate ?\[ ?\()
-(keyboard-translate ?\) ?\])
-(keyboard-translate ?\] ?\))
+;; ;; Swap ( <=> [ and ) <=> ]
+;; (keyboard-translate ?\( ?\[)
+;; (keyboard-translate ?\[ ?\()
+;; (keyboard-translate ?\) ?\])
+;; (keyboard-translate ?\] ?\))
 
 (use-package railscasts-reloaded-theme
   :init

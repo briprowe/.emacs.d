@@ -8,6 +8,6 @@
 	    (lambda () (company-mode -1))))
 
 
-(use-package forge
-  :demand t
-  :after magit)
+;; (use-package forge
+;;   :demand t
+;;   :after magit)
