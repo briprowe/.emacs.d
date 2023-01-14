@@ -7,6 +7,7 @@
  '(delete-old-versions t)
  '(lsp-rust-analyzer-download-url
    "https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-aarch64-apple-darwin.gz")
+ '(lsp-rust-features [])
  '(lsp-rust-server 'rust-analyzer)
  '(safe-local-variable-values
    '((eval progn
