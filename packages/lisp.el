@@ -14,10 +14,8 @@
 	      ("C-c M-l" . cider-repl-switch-to-other))
   :config
   (require 'bind-key)
-  (add-hook 'cider-repl-mode-hook #'company-mode)
-  (add-hook 'cider-mode-hook #'company-mode)
-  ;; (setq org-babel-clojure-backend 'cider)
-  )
+  (add-hook 'cider-repl-mode-hook (lambda ()
+				    (unbind-key "RET" paredit-mode-map))))
 
 (defvar lisp-modes
   '(cider-repl-mode-hook
