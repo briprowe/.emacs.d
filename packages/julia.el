@@ -1,4 +1,5 @@
 (use-package julia-mode
+  :after tree-sitter
   :mode "\\.jl\\'")
 
 (use-package julia-repl

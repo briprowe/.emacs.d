@@ -3,7 +3,8 @@
 
 (use-package idle-highlight-mode)
 
-(use-package clojure-mode)
+(use-package clojure-mode
+  :after tree-sitter)
 
 (use-package cider
   :bind (:map cider-mode-map

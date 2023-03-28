@@ -7,6 +7,7 @@
 (use-package eglot)
 
 (use-package yaml-mode
+  :after tree-sitter
   :mode "\\.yaml\\'")
 
 (use-package restclient
@@ -18,6 +19,7 @@
   (add-to-list 'company-backends 'company-restclient))
 
 (use-package json-mode
+  :after tree-sitter
   :mode "\\.json$")
 
 (use-package jq-mode
