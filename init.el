@@ -29,3 +29,6 @@
     (load (expand-file-name filename package-config-dir))))
 
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
+
+(add-to-list 'auto-save-file-name-transforms
+	     '(".*" "~/.emacs.d/auto-saves/" t))
