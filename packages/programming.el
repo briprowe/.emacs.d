@@ -41,15 +41,6 @@
   :mode "\\.jq$"
   :hook ((json-mode . (lambda () (define-key json-mode-map (kbd "C-c C-j") #'jq-interactively)))))
 
-;; (use-package typescript-mode
-;;   :after tree-sitter
-;;   :hook ((typescript-mode . eglot-ensure)
-;; 	 (typescript-react-mode . eglot-ensure))
-;;   :config
-;;   (define-derived-mode typescript-react-mode typescript-mode "TypeScript TSX")
-;;   (add-to-list 'auto-mode-alist '("\\.tsx?\\'" . typescript-react-mode))
-;;   (add-to-list 'tree-sitter-major-mode-language-alist '(typescript-react-mode . tsx)))
-
 (use-package web-mode
   :after tree-sitter
   :ensure t
