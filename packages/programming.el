@@ -20,8 +20,8 @@
 (use-package groovy-mode)
 
 (use-package eglot
-  :ensure t
-  :hook ((web-mode . eglot-ensure))
+  :demand t
+  :hook ((web-mode rust-mode) . eglot-ensure)
   :config
   (add-to-list 'eglot-server-programs
 	       '(web-mode . ("typescript-language-server" "--stdio"))))

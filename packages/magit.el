@@ -1,5 +1,5 @@
 (use-package magit
-  :demand t
+  :ensure t
   :bind (("C-x g" . magit-status)
          :map magit-status-mode-map
          ("TAB" . magit-section-cycle)))

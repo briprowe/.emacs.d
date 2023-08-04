@@ -39,7 +39,7 @@
       (t (string-lessp a b)))))
 
 (use-package flx-ido
-  :demand t
+  :ensure t
   :after ido
   :custom
   (flx-ido-use-faces t)
@@ -111,10 +111,10 @@ If CLEAR is specified, clear them instead."
   (undo-tree-enable-undo-in-region nil)
   (undo-tree-auto-save-history nil)
   :config
-  (global-undo-tree-mode))
+  (global-undo-tree-mode 1))
 
 (use-package gist
-  :demand t)
+  :ensure t)
 
 (use-package yasnippet
-  :demand t)
+  :ensure t)
