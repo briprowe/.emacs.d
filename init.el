@@ -25,7 +25,8 @@
 
 (defvar package-config-dir (expand-file-name "packages" user-emacs-directory))
 (dolist (filename (directory-files package-config-dir))
-  (when (and (not (string= ".." filename)) (not (string= "." filename)))
+  (when (and (not (string= ".." filename))
+	     (not (string= "." filename)))
     (load (expand-file-name filename package-config-dir))))
 
 (add-hook 'before-save-hook #'delete-trailing-whitespace)

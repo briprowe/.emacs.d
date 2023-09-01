@@ -24,7 +24,10 @@
     clojurec-mode-hook
     emacs-lisp-mode-hook
     eval-expression-minibuffer-setup-hook
-    ielm-mode-hook
+    ;; For some reason the ielm repl breaks if `init-lisp` is executed on
+    ;; it.
+    ;;
+    ;; ielm-mode-hook
     lisp-mode-hook
     lisp-interaction-mode-hook
     scheme-mode-hook))
