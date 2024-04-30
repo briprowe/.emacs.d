@@ -6,7 +6,8 @@
 (setq gc-cons-threshold (* 32 1024 1024))
 (add-hook 'after-init-hook (lambda () (setq gc-cons-threshold (* 4 1024 1024))))
 ;; Collect the garbage when not used.
-(add-hook 'focus-out-hook #'garbage-collect)
+;;(add-hook 'focus-out-hook #'garbage-collect)
+(add-function :after after-focus-change-function (lambda () (unless (frame-focus-state) (garbage-collect))))
 
 (defun load-config (filename)
   (load (expand-file-name filename user-emacs-directory)))

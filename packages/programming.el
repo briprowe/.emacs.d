@@ -21,10 +21,26 @@
 
 (use-package eglot
   :demand t
-  :hook ((web-mode rust-mode) . eglot-ensure)
+  :hook (prog-mode . eglot-ensure)
+  ;; These first five bindings don't need to be here, but are a good
+  ;; reminder of what they are bound to
+  :bind (("M-TAB" . completion-at-point)
+	 ("M-g i" . imenu)
+	 ("M-." . xref-find-defnitions)
+	 ("M-," . xref-go-back)
+	 :map
+	 eglot-mode-map
+	 ("C-c c a" . eglot-code-actions)
+	 ("C-c c o" . eglot-code-actions-organize-imports)
+	 ("C-c c r" . eglot-rename)
+	 ("C-c c f" . eglot-format))
   :config
   (add-to-list 'eglot-server-programs
 	       '(web-mode . ("typescript-language-server" "--stdio"))))
+
+(use-package eldoc
+  :init
+  (global-eldoc-mode))
 
 (use-package yaml-mode
   :after tree-sitter

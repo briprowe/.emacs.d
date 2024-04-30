@@ -1,6 +1,12 @@
-;; (use-package elpy
-;;   :bind (:map elpy-mode-map
-;; 	      ("C-M-n" . elpy-nav-forward-block)
-;; 	      ("C-M-p" . elpy-nav-backward-block))
-;;   :init
-;;   (advice-add 'python-mode :before 'elpy-enable))
+(use-package python-mode
+  :mode "\\.py\\'")
+
+(use-package flycheck-pycheckers
+  :defer t
+  :hook (flycheck-mode . #'(lambda () (when (= major-mode 'python-mode)
+					(flycheck-pycheckers-setup)))))
+
+(use-package poetry
+  :ensure t
+  :config
+  (poetry-tracking-mode))

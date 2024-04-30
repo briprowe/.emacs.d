@@ -3,28 +3,17 @@
   (setq completion-cycle-threshold 3)
   (setq tab-always-indent 'complete))
 
-(use-package tree-sitter
+(use-package flycheck
   :ensure t
   :config
-  ;; activate tree-sitter on any buffer containing code for which it has a parser available
-  (global-tree-sitter-mode)
-  ;; you can easily see the difference tree-sitter-hl-mode makes for python, ts or tsx
-  ;; by switching on and off
-  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
-
-(use-package tree-sitter-langs
-  :ensure t
-  :after tree-sitter
-  :config
-  (add-to-list 'tree-sitter-major-mode-language-alist
-	       '(web-mode . typescript)))
+  (add-hook 'after-init-hook #'global-flycheck-mode))
 
 (use-package ido
   :straight nil
   :commands (ido-completing-read
-              ido-read-directory-name
-              ido-read-file-name
-              ido-read-buffer)
+             ido-read-directory-name
+             ido-read-file-name
+             ido-read-buffer)
   :custom
   (ido-enable-flex-matching t)
   (ido-use-faces nil)
@@ -34,9 +23,9 @@
     (eq (aref s (1- (length s))) ?/))
   (defun ido-file-lessp (a b)
     (cond
-      ((and (ends-with-/ a) (not (ends-with-/ b))) t)
-      ((and (not (ends-with-/ a)) (ends-with-/ b)) nil)
-      (t (string-lessp a b)))))
+     ((and (ends-with-/ a) (not (ends-with-/ b))) t)
+     ((and (not (ends-with-/ a)) (ends-with-/ b)) nil)
+     (t (string-lessp a b)))))
 
 (use-package flx-ido
   :ensure t
@@ -57,18 +46,18 @@
     "Add ido text properties to THINGS.
 If CLEAR is specified, clear them instead."
     (if flx-ido-use-faces
-      (cl-loop for thing in things
-        for i from 0 below (length things)
-        collect (if clear
-                  (flx-propertize thing nil)
-                  (flx-propertize (car thing) (cdr thing))))
+	(cl-loop for thing in things
+		 for i from 0 below (length things)
+		 collect (if clear
+			     (flx-propertize thing nil)
+			   (flx-propertize (car thing) (cdr thing))))
       (if clear
-        things
+          things
         (mapcar #'car things)))))
 
 (use-package smex
   :commands (smex
-              smex-major-mode-commands)
+             smex-major-mode-commands)
   :config
   (smex-initialize))
 
