@@ -13,9 +13,11 @@
 /projects
 /smex-items
 /st-bk/
-/straight/
 /tramp
 /transient/
 /url/
 /var/
 /elpa/
+/straight/build-cache.el
+/straight/build/
+/straight/repos/
