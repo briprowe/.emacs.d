@@ -26,8 +26,8 @@
   ;; reminder of what they are bound to
   :bind (("M-TAB" . completion-at-point)
 	 ("M-g i" . imenu)
-	 ("M-." . xref-find-defnitions)
-	 ("M-," . xref-go-back)
+	 ;; ("M-." . xref-find-defnitions)
+	 ;; ("M-," . xref-go-back)
 	 :map
 	 eglot-mode-map
 	 ("C-c c a" . eglot-code-actions)
