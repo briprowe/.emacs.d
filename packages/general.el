@@ -1,7 +1,8 @@
 (use-package emacs
   :init
   (setq completion-cycle-threshold 3)
-  (setq tab-always-indent 'complete))
+  (setq tab-always-indent 'complete)
+  (global-auto-revert-mode 1))
 
 (use-package flycheck
   :ensure t
