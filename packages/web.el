@@ -1,6 +1,6 @@
 ;; this package contains js-base-mode, js-mode, and js-ts-mode
 (use-package js2-mode
-  :defer 't
+  :defer t
   :ensure js
   :custom
   (js-indent-level 2)

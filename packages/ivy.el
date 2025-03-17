@@ -1,4 +1,5 @@
 (use-package ivy
+  :ensure t
   :demand t
   ;; :bind (("<f2>" . ivy-switch-buffer)
   ;;         :map ivy-minibuffer-map
@@ -17,12 +18,14 @@
   (ivy-mode 1))
 
 (use-package counsel
+  :ensure t
   :demand t
   :after ivy
   :config
   (counsel-mode 1))
 
 (use-package ivy-rich
+  :ensure t
   :demand t
   :after ivy
   :config
@@ -43,10 +46,12 @@
                   (_ (apply orig-fun args)))))
   (ivy-rich-mode 1))
 
-(use-package nerd-icons)
+(use-package nerd-icons
+  :ensure t)
 
 (use-package nerd-icons-ivy-rich
   :ensure t
+  :after nerd-icons ivy-rich
   :init
   (nerd-icons-ivy-rich-mode 1)
   (ivy-rich-mode 1))

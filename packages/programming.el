@@ -1,8 +1,10 @@
 (use-package corfu
+  :ensure t
   :init
   (global-corfu-mode))
 
 (use-package dabbrev
+  :ensure t
   :bind (("M-/" . dabbrev-completion)
 	 ("C-M-/" . dabbrev-expand))
   :custom
@@ -13,13 +15,16 @@
   (add-hook 'prog-mode-hook 'display-line-numbers-mode))
 
 (use-package apheleia
-  :ensure t
+  :vc (:url "git@github.com:radian-software/apheleia.git"
+	    :rev "v4.4")
   :config
   (apheleia-global-mode +1))
 
-(use-package groovy-mode)
+;; (use-package groovy-mode
+;;   :vc (:url "git@github.com:briprowe/groovy-emacs-modes.git"))
 
 (use-package eglot
+  :ensure t
   :demand t
   :hook (prog-mode . eglot-ensure)
   ;; These first five bindings don't need to be here, but are a good
@@ -43,22 +48,24 @@
   (global-eldoc-mode))
 
 (use-package yaml-mode
-  :after tree-sitter
+  :ensure t
   :mode "\\.yaml\\'")
 
-(use-package restclient
-  :mode "\\.rest\\'")
+;; (use-package restclient
+;;   :vc (:url "git@github.com:briprowe/restclient.el.git")
+;;   :mode "\\.rest\\'")
 
 (use-package json-mode
-  :after tree-sitter
+  :ensure t
   :mode "\\.json$")
 
 (use-package jq-mode
+  :vc (:url "git@github.com:ljos/jq-mode.git"
+	    :rev "eeb86b4d5ad823e97bd19979fcb22d0aa90ff07b")
   :mode "\\.jq$"
   :hook ((json-mode . (lambda () (define-key json-mode-map (kbd "C-c C-j") #'jq-interactively)))))
 
 (use-package web-mode
-  :after tree-sitter
   :ensure t
   :mode (("\\.ts\\'" . web-mode)
 	 ("\\.js\\'" . web-mode)
@@ -69,7 +76,17 @@
   (setq web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'"))))
 
 (use-package git-link
+  :vc (:url "git@github.com:sshaw/git-link.git"
+	    :rev "8d0f98cf36f6b9c31285329b054ae77f9a3d9b33")
   :config (global-set-key (kbd "C-c g l") 'git-link))
 
 
 (add-hook 'prog-mode-hook 'electric-pair-mode)
+
+(use-package realgud
+  :ensure t)
+
+(use-package nushell-mode
+  :vc (:url "git@github.com:mrkkrp/nushell-mode.git"
+	    :rev "c179c3cf573b2cc9421dc08bf47e2d619c7791ee")
+  :mode "\\.nu$")

@@ -1,4 +1,5 @@
 (use-package sqlformat
+  :ensure t
   :commands (sqlformat sqlformat-buffer sqlformat-region)
   :hook (sql-mode . sqlformat-on-save-mode)
   :init

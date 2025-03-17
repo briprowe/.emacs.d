@@ -1,10 +1,9 @@
 (use-package dash
-  :demand t)
-
-(use-package dash-functional
+  :ensure t
   :demand t)
 
 (use-package el-patch
+  :ensure t
   :demand t
   :config
   (eval-when-compile

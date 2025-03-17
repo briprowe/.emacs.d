@@ -9,9 +9,18 @@
 ;;(add-hook 'focus-out-hook #'garbage-collect)
 (add-function :after after-focus-change-function (lambda () (unless (frame-focus-state) (garbage-collect))))
 
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+(package-initialize)
+
+(require 'use-package)
+
+(setq auth-sources '("~/.authinfo"))
+
 (defun load-config (filename)
   (load (expand-file-name filename user-emacs-directory)))
-(dolist (filename '("straight.el" "ui.el" "mac.el"))
+(dolist (filename '("ui.el" "mac.el"))
   (load-config filename))
 
 ;; ;; Swap ( <=> [ and ) <=> ]
@@ -21,6 +30,7 @@
 ;; (keyboard-translate ?\] ?\))
 
 (use-package railscasts-reloaded-theme
+  :vc (:url "git@github.com:briprowe/railscasts-reloaded-theme.git")
   :init
   (load-theme 'railscasts-reloaded t))
 

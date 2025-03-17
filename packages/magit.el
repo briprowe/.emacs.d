@@ -5,6 +5,7 @@
          ("TAB" . magit-section-cycle)))
 
 
-;; (use-package forge
-;;   :demand t
-;;   :after magit)
+(use-package forge
+  :ensure t
+  :demand t
+  :after magit)

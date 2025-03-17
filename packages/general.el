@@ -10,7 +10,6 @@
   (add-hook 'after-init-hook #'global-flycheck-mode))
 
 (use-package ido
-  :straight nil
   :commands (ido-completing-read
              ido-read-directory-name
              ido-read-file-name
@@ -64,18 +63,21 @@ If CLEAR is specified, clear them instead."
 
 (use-package helpful
   :bind (("C-h k" . helpful-key))
-  :custom
-  (counsel-describe-function-function #'helpful-callable)
-  (counsel-describe-variable-function #'helpful-variable))
+  ;; :custom
+  ;; (counsel-describe-function-function #'helpful-callable)
+  ;; (counsel-describe-variable-function #'helpful-variable)
+  )
+
 
 (use-package doom-modeline
-  :demand t
+  :ensure t
   :custom
   (doom-modeline-buffer-file-name-style 'relative-from-project)
-  :config
-  (doom-modeline-mode))
+  :hook (after-init . doom-modeline-mode))
 
 (use-package rg
+  :vc (:url "git@github.com:dajva/rg.el.git"
+	    :rev "94813ba3a7ccf3af68beb23a2c39154a99e8c9ec")
   :after projectile
   :custom
   (rg-group-result t)
@@ -90,6 +92,7 @@ If CLEAR is specified, clear them instead."
               ("B" . rg-back-history)))
 
 (use-package undo-tree
+  :ensure t
   :demand t
   :bind (:map undo-tree-map
 	      ([remap upcase-region] . undo-tree-visualize)
@@ -103,8 +106,17 @@ If CLEAR is specified, clear them instead."
   :config
   (global-undo-tree-mode 1))
 
-(use-package gist
-  :ensure t)
+(use-package igist
+  :ensure t
+  :bind (("M-o" . igist-dispatch)))
 
 (use-package yasnippet
+  :vc (:url "git@github.com:joaotavora/yasnippet.git"
+	    :rev "5b315f1753480ebe669b157b8242448b5eafcfea")
   :ensure t)
+
+(use-package asdf
+  :vc (:url "git@github.com:tabfugnic/asdf.el.git"
+	    :rev "1d95d6f81ef93135d801f49eb3f84cb96a47403a")
+  :config
+  (asdf-enable))

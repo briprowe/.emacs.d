@@ -1,2 +1,2 @@
 (use-package haskell-mode
-  :after tree-sitter)
+  :ensure t)

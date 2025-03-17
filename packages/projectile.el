@@ -1,5 +1,5 @@
 (use-package projectile
-  :demand t
+  :ensure t
   :bind-keymap (("C-x p" . projectile-command-map)
 		("C-x C-p" . projectile-command-map))
   :custom

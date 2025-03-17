@@ -1,12 +1,18 @@
 (use-package paredit
+  :ensure t
   :diminish paredit-mode)
 
-(use-package idle-highlight-mode)
+(use-package idle-highlight-mode
+  :ensure t)
 
 (use-package clojure-mode
+  :vc (:url "git@github.com:clojure-emacs/clojure-mode.git"
+       :rev "eabe29b076fff19db552d36d4babaa36ecf0b704")
   :after tree-sitter)
 
 (use-package cider
+  :vc (:url "git@github.com:clojure-emacs/cider.git"
+       :rev "ee35c30d58bffe08dab080ec5135e23b9dfcf508")
   :bind (:map cider-mode-map
 	      ("C-c M-p" . cider-pprint-eval-last-sexp)
 	      :map cider-repl-mode-map

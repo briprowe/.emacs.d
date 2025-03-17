@@ -1,4 +1,5 @@
 (use-package treemacs
+  :ensure t
   :defer t
   :init
   (with-eval-after-load 'winum
